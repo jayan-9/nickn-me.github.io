@@ -478,7 +478,7 @@ function showToast(message) {
     
     setTimeout(() => {
         toast.classList.remove('show');
-    }, 3000);
+    }, 1000); // Only 1 second
 }
 
 // Public API functions for adding new content
