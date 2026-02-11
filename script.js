@@ -739,6 +739,8 @@ setTimeout(() => {
     window.addSymbol('special', '♾️', 'Permanent');
 }, 1000);
 
+loadModalTabs();
+
 addStyle('love', 'love_fullwidth_hittite', '𔘓', '𔘓࿐', {
     a: "ａ", b: "ｂ", c: "ｃ", d: "ｄ", e: "ｅ", f: "ｆ", g: "ｇ", h: "ｈ", i: "ｉ", j: "ｊ",
     k: "ｋ", l: "ｌ", m: "ｍ", n: "ｎ", o: "ｏ", p: "ｐ", q: "ｑ", r: "ｒ", s: "ｓ", t: "ｔ",
@@ -788,4 +790,4 @@ addStyle('love', 'love_fullwidth_hittite', '𔘓', '𔘓࿐', {
     U: "𝗨", V: "𝗩", W: "𝗪", X: "𝗫", Y: "𝗬", Z: "𝗭"
   });
 
-</script>
+});
