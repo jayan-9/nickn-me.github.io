@@ -743,6 +743,12 @@ addSymbols('gaming', '༒', 'Tibetan Sign');
 addSymbols('gaming', '☠', 'Skull and Crossbones');
 addSymbols('gaming', 'メ', 'Japanese Character');
 addSymbols('gaming', '𐚁', 'Cypriot Syllable');
+
+    // ============ ADD FANCY SUGGESTIONS ============
+addSuggestion('fancy', '➬ ✿⃟मां का मगरमच्छ ⨳࿐');
+addSuggestion('fancy', '┊◯┊𝙷𝙴𝙰𝚁𝚃𝙻𝙴𝚂𝚂 ☻┊◯꫟');
+addSuggestion('fancy', '𝐓𝐨✗𝐢𝐜 𝐀𝐭𝐭𝐢𝐭𝐮𝐝𝐞 ˣ‿ˣ');
+addSuggestion('fancy', '➵N̷i̷g̷h̷t̷𓄂S̷h̷a̷d̷e̷ꪶ乡');
     
     // Initial load
     generateStyles();
