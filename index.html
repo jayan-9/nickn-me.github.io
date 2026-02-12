@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nickname Generator - Create Stylish Names for Games & Social Media</title>
+    <meta name="description" content="Free online nickname generator. Create stylish names, fancy fonts, cool symbols for Free Fire, PUBG, BGMI, Instagram, YouTube. 1000+ unique styles available.">
+    <meta name="keywords" content="nickname generator, stylish names, fancy fonts, gamer names, name style, free fire name, pubg name, instagram name">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <h1>Nickname<span class="logo-dot">.</span>com</h1>
+                <p class="tagline">Style Your Identity</p>
+            </div>
+            <div class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="close-sidebar" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-item" onclick="toggleTheme()">
+                <i class="fas fa-palette"></i>
+                <span>Theme</span>
+                <span class="theme-status" id="themeStatus">Light</span>
+            </div>
+            <div class="sidebar-item" onclick="openSymbolModal()">
+                <i class="fas fa-symbols"></i>
+                <span>Symbols Library</span>
+            </div>
+            <div class="sidebar-item" onclick="showGuide()">
+                <i class="fas fa-book"></i>
+                <span>How to Use</span>
+            </div>
+            <div class="sidebar-item" id="noteSection">
+                <i class="fas fa-sticky-note"></i>
+                <span>Quick Notes</span>
+                <span class="note-badge" id="noteCount">0/100</span>
+            </div>
+            <div class="sidebar-item coming-soon">
+                <i class="fas fa-robot"></i>
+                <span>AI Name Generator</span>
+                <span class="badge">Soon</span>
+            </div>
+            <div class="sidebar-item coming-soon">
+                <i class="fas fa-history"></i>
+                <span>Recent Names</span>
+                <span class="badge">Soon</span>
+            </div>
+            <div class="sidebar-divider"></div>
+            <div class="sidebar-item" onclick="window.location.href='about.html'">
+                <i class="fas fa-info-circle"></i>
+                <span>About Us</span>
+            </div>
+            <div class="sidebar-item" onclick="window.location.href='contact.html'">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </div>
+            <div class="sidebar-item" onclick="window.location.href='privacy-policy.html'">
+                <i class="fas fa-shield-alt"></i>
+                <span>Privacy Policy</span>
+            </div>
+        </div>
+        <div class="note-editor" id="noteEditor">
+            <textarea placeholder="Type your notes here... (Max 100 words)" maxlength="500" id="noteText"></textarea>
+            <div class="note-actions">
+                <button onclick="saveNote()" class="save-note">
+                    <i class="fas fa-save"></i> Save
+                </button>
+                <button onclick="clearNote()" class="clear-note">
+                    <i class="fas fa-trash"></i> Clear
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Toolbar (Sticky) -->
+    <div class="sticky-toolbar">
+        <div class="container">
+            <div class="toolbar-content">
+                <div class="input-group">
+                    <input type="text" id="nameInput" placeholder="Enter your name or nickname..." autocomplete="off">
+                    <button class="symbol-btn" onclick="openSymbolModal()" title="Insert Symbols">
+                        ☺
+                    </button>
+                </div>
+                <button class="generate-btn" onclick="generateStyles()">
+                    <i class="fas fa-wand-magic-sparkles"></i> Generate Names
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="categories-section">
+        <div class="container">
+            <div class="categories-scroll">
+                <button class="category-btn active" onclick="selectCategory('love')">
+                    <i class="fas fa-heart"></i> Love
+                </button>
+                <button class="category-btn" onclick="selectCategory('gamer')">
+                    <i class="fas fa-gamepad"></i> Gamer
+                </button>
+                <button class="category-btn" onclick="selectCategory('fancy')">
+                    <i class="fas fa-crown"></i> Fancy
+                </button>
+                <button class="category-btn" onclick="selectCategory('font')">
+                    <i class="fas fa-font"></i> Fonts
+                </button>
+                <button class="category-btn suggestion-btn" onclick="toggleSuggestions()">
+                    <i class="fas fa-lightbulb"></i> Ideas
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Generated Name Styles</h2>
+                <div class="results-count" id="resultsCount">0 styles</div>
+            </div>
+            <div id="result" class="results-grid">
+                <div class="empty-state">
+                    <i class="fas fa-magic"></i>
+                    <p>Enter your name above to generate stylish nicknames</p>
+                    <p class="sub-text">Perfect for Free Fire, PUBG, BGMI, Instagram, and YouTube</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AdSense Placeholder -->
+    <div class="ad-container">
+        <div class="container">
+            <div class="ad-placeholder">
+                <!-- Ad will be placed here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- How to Use Guide -->
+    <section class="guide-section">
+        <div class="container">
+            <h2><i class="fas fa-book-open"></i> How to Create Stylish Names</h2>
+            <div class="guide-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Enter Your Name</h3>
+                    <p>Type your original name or nickname in the input box above.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Choose Category</h3>
+                    <p>Select from Love, Gamer, Fancy, or Font styles based on your preference.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Generate & Copy</h3>
+                    <p>Click generate and copy your favorite style with one click.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Use Anywhere</h3>
+                    <p>Use your new stylish name in games, social media, or anywhere online.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2><i class="fas fa-award"></i> Why Choose Our Generator</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant Generation</h3>
+                    <p>Create 100+ name styles in seconds with our optimized algorithm.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Friendly</h3>
+                    <p>Perfectly optimized for mobile devices and touch screens.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <h3>Privacy Protected</h3>
+                    <p>Your names are processed locally, never stored on servers.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Always Updated</h3>
+                    <p>Regular updates with new styles and symbols added weekly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suggestions Section -->
+    <section class="suggestions-section" id="suggestionsSection">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-lightbulb"></i> Popular Name Ideas</h2>
+                <button class="close-suggestions" onclick="toggleSuggestions()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="suggestions-grid" id="suggestionsGrid">
+                <!-- Suggestions loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Symbol Modal -->
+    <div class="modal" id="symbolModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-symbols"></i> Symbol Picker</h3>
+                <button class="close-modal" onclick="closeSymbolModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="symbol-categories" id="symbolCategories">
+                    <!-- Categories loaded by JavaScript -->
+                </div>
+                <div class="symbols-grid" id="symbolsGrid">
+                    <!-- Symbols loaded by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Guide Modal -->
+    <div class="modal guide-modal" id="guideModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-book"></i> How to Use This Tool</h3>
+                <button class="close-modal" onclick="closeGuide()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="guide-content">
+                    <h4>Complete Guide to Creating Perfect Nicknames</h4>
+                    
+                    <div class="guide-section">
+                        <h5>Getting Started</h5>
+                        <p>Our nickname generator is designed to be simple and intuitive. Follow these steps to create the perfect stylish name:</p>
+                        <ul>
+                            <li><strong>Step 1:</strong> Enter your desired name in the input field at the top</li>
+                            <li><strong>Step 2:</strong> Choose a category that matches your style preference</li>
+                            <li><strong>Step 3:</strong> Click "Generate Names" to see hundreds of variations</li>
+                            <li><strong>Step 4:</strong> Click the copy button next to your favorite style</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h5>Category Descriptions</h5>
+                        <div class="category-desc">
+                            <span class="category-tag love-tag"><i class="fas fa-heart"></i> Love</span>
+                            <p>Romantic and affectionate styles perfect for couples, relationship status, or sweet usernames.</p>
+                        </div>
+                        <div class="category-desc">
+                            <span class="category-tag gamer-tag"><i class="fas fa-gamepad"></i> Gamer</span>
+                            <p>Bold and aggressive styles designed for gaming profiles, clan names, and competitive platforms.</p>
+                        </div>
+                        <div class="category-desc">
+                            <span class="category-tag fancy-tag"><i class="fas fa-crown"></i> Fancy</span>
+                            <p>Elegant and sophisticated styles with decorative elements for a premium look.</p>
+                        </div>
+                        <div class="category-desc">
+                            <span class="category-tag font-tag"><i class="fas fa-font"></i> Fonts</span>
+                            <p>Unique text transformations and special characters for creative text styling.</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h5>Pro Tips</h5>
+                        <ul>
+                            <li>Use shorter names (3-8 characters) for best results in games</li>
+                            <li>Combine symbols from the symbol picker for unique creations</li>
+                            <li>Try different categories to discover styles you might love</li>
+                            <li>Save your favorite names in the notes section for later use</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h5>Platform Compatibility</h5>
+                        <p>Our generated names work perfectly on:</p>
+                        <div class="platforms">
+                            <span class="platform"><i class="fas fa-fire"></i> Free Fire</span>
+                            <span class="platform"><i class="fas fa-mobile-alt"></i> PUBG Mobile</span>
+                            <span class="platform"><i class="fab fa-instagram"></i> Instagram</span>
+                            <span class="platform"><i class="fab fa-youtube"></i> YouTube</span>
+                            <span class="platform"><i class="fas fa-gamepad"></i> BGMI</span>
+                            <span class="platform"><i class="fab fa-discord"></i> Discord</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Nickname.com</h3>
+                    <p>Create unique and stylish names for gaming and social media. 100% free online tool.</p>
+                    <div class="social-links">
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#" onclick="showGuide()">How to Use</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nickname.com. All rights reserved. | Designed for gamers and content creators</p>
+                <p class="disclaimer">This tool is free to use. Generated names are for entertainment purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Note: The following pages will be created separately:
+         about.html, contact.html, privacy-policy.html
+    -->
+
+    <script src="script.js"></script>
+</body>
+</html>
