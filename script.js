@@ -3374,6 +3374,34 @@ addSymbols('hearts', '☔︎︎', 'Umbrella with Rain');
 addSymbols('hearts', '亗', 'Samurai Heart');
 addSymbols('hearts', '♛', 'Black Chess Queen');
 addSymbols('hearts', '♚', 'Black Chess King');
+
+    // ============ ARROWS SYMBOLS ============
+addSymbols('arrows', '➤', 'Black Right Arrowhead');
+addSymbols('arrows', '➥', 'Right Arrow with Tail');
+addSymbols('arrows', '➦', 'Right Arrow with Dotted Tail');
+addSymbols('arrows', '➧', 'Black Right Arrow with Tail');
+addSymbols('arrows', '➨', 'Heavy Right Arrow with Tail');
+addSymbols('arrows', '➩', 'Right Arrow with Thick Tail');
+addSymbols('arrows', '➪', 'Right Arrow with Medium Tail');
+addSymbols('arrows', '➫', 'Right Arrow with Small Tail');
+addSymbols('arrows', '➬', 'Right Arrow with Large Tail');
+addSymbols('arrows', '➭', 'Right Arrow with Hook');
+addSymbols('arrows', '➮', 'Right Arrow with Curved Hook');
+addSymbols('arrows', '➯', 'Right Arrow with Loop');
+addSymbols('arrows', '➱', 'Right Arrow with Notched Tail');
+addSymbols('arrows', '➲', 'Right Arrow with Circled Plus');
+addSymbols('arrows', '➳', 'Right Arrow with Heart');
+addSymbols('arrows', '➴', 'Right Arrow with Diamond');
+addSymbols('arrows', '➵', 'Right Arrow with Loop');
+addSymbols('arrows', '➸', 'Right Arrow with Circle');
+addSymbols('arrows', '➹', 'Right Arrow with Double Circle');
+addSymbols('arrows', '➺', 'Right Arrow with Star');
+addSymbols('arrows', '𐎀', 'Ugaritic Arrow');
+addSymbols('arrows', '➵', 'Right Arrow with Loop');
+addSymbols('arrows', '✏', 'Pencil');
+addSymbols('arrows', '✐', 'Upper Right Pencil');
+addSymbols('arrows', '✑', 'Upper Right Pencil');
+addSymbols('arrows', '✒', 'Black Nib');
     
     generateStyles();
     loadMiniSuggestions();
