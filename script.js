@@ -725,6 +725,24 @@ addStyle('love', 'smallcaps_love_style', '—͟͞͞✞', '✞𓂃✍︎', {
     K: "ᵏ", L: "ˡ", M: "ᵐ", N: "ⁿ", O: "ᵒ", P: "ᵖ", Q: "ᑫ", R: "ʳ", S: "ˢ", T: "ᵗ",
     U: "ᵘ", V: "ᵛ", W: "ʷ", X: "ˣ", Y: "ʸ", Z: "ᶻ"
 });
+
+    // ============ ADD GAMING SYMBOLS ============
+addSymbols('gaming', '࿐', 'Flower Swirl');
+addSymbols('gaming', '☯', 'Yin Yang');
+addSymbols('gaming', '모', 'Korean Character');
+addSymbols('gaming', '☂', 'Umbrella');
+addSymbols('gaming', 'ⓥ', 'Circled V');
+addSymbols('gaming', '𖹭', 'Ethiopic Syllable');
+addSymbols('gaming', '么', 'Chinese Character');
+addSymbols('gaming', '✓', 'Check Mark');
+addSymbols('gaming', '☫', 'Farsi Symbol');
+addSymbols('gaming', '☬', 'Adi Shakti');
+addSymbols('gaming', '『', 'Left Corner Bracket');
+addSymbols('gaming', '』', 'Right Corner Bracket');
+addSymbols('gaming', '༒', 'Tibetan Sign');
+addSymbols('gaming', '☠', 'Skull and Crossbones');
+addSymbols('gaming', 'メ', 'Japanese Character');
+addSymbols('gaming', '𐚁', 'Cypriot Syllable');
     
     // Initial load
     generateStyles();
