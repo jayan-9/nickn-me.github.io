@@ -177,6 +177,13 @@ let symbolsData = {
         { symbol: "🛡️", name: "Shield" },
         { symbol: "🎯", name: "Bullseye" },
         { symbol: "🏆", name: "Trophy" },
+        { symbol: '☯', name: 'Yin Yang' },
+    { symbol: '모', name: 'Korean Character' },
+    { symbol: '☂', name: 'Umbrella' },
+    { symbol: 'ⓥ', name: 'Circled V' },
+    { symbol: '𖹭', name: 'Ethiopic Syllable' },
+    { symbol: '么', name: 'Chinese Character' },
+    { symbol: '✓', name: 'Check Mark' },
         { symbol: "👑", name: "Crown" }
     ],
     hearts: [
