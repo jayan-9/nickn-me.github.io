@@ -475,9 +475,15 @@ function showToast(message) {
     toast.textContent = message;
     toast.style.display = 'block';
     
-    setTimeout(() => {
+    // Clear any existing timeout
+    if (window.toastTimeout) {
+        clearTimeout(window.toastTimeout);
+    }
+    
+    // Auto hide after 2.5 seconds
+    window.toastTimeout = setTimeout(() => {
         toast.style.display = 'none';
-    }, 3000);
+    }, 2500);
 }
 
 // ===== THEME FUNCTIONS =====
