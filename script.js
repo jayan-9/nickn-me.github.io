@@ -3318,6 +3318,32 @@ addSymbols('stars', '⚕', 'Medical Symbol');
 addSymbols('stars', '⚖', 'Scales of Justice');
 addSymbols('stars', '⚗', 'Alembic');
     
+    // ============ FACES SYMBOLS ============
+addSymbols('faces', '☃︎', 'Snowman');
+addSymbols('faces', '𔓎', 'Egyptian Decoration');
+addSymbols('faces', '🐼', 'Panda Face');
+addSymbols('faces', '୧⍤⃝💐', 'Raising Hand with Flower');
+addSymbols('faces', '๑˃̵ᴗ˂̵๑', 'Cute Blush Face');
+addSymbols('faces', '⟡‿⟡', 'Star Eyes Face');
+addSymbols('faces', '̤̮', 'Combining Breve');
+addSymbols('faces', '×᷼×ㅤ', 'Crossed Eyes Face');
+addSymbols('faces', '•͜•', 'Simple Face');
+addSymbols('faces', '𓅫', 'Egyptian Bird');
+addSymbols('faces', '𓃠', 'Egyptian Cat');
+addSymbols('faces', '☻', 'Black Smiling Face');
+addSymbols('faces', '☹︎', 'Frowning Face');
+addSymbols('faces', ':)', 'Classic Smiley');
+addSymbols('faces', '⑆', 'Bracket Symbol');
+addSymbols('faces', '╰⁔╯', 'Bird Face');
+addSymbols('faces', '՞•ㅅ•՞', 'Curious Face');
+addSymbols('faces', '˃ᴗ˂', 'Happy Face');
+addSymbols('faces', '≽^•⩊•^≼', 'Cat Face');
+addSymbols('faces', '(✿◠‿◠)', 'Flower Face');
+addSymbols('faces', '♥‿♥', 'Heart Eyes');
+addSymbols('faces', '(˘❥˘)', 'Kissy Face');
+addSymbols('faces', '(｡◕‿◕｡)', 'Shiny Happy Face');
+addSymbols('faces', '(๑˃ᴗ˂)', 'Cute Happy Face');
+    
     generateStyles();
     loadMiniSuggestions();
 });
