@@ -3343,6 +3343,37 @@ addSymbols('faces', '♥‿♥', 'Heart Eyes');
 addSymbols('faces', '(˘❥˘)', 'Kissy Face');
 addSymbols('faces', '(｡◕‿◕｡)', 'Shiny Happy Face');
 addSymbols('faces', '(๑˃ᴗ˂)', 'Cute Happy Face');
+
+    // ============ HEARTS SYMBOLS ============
+addSymbols('hearts', '♡', 'White Heart');
+addSymbols('hearts', '♥', 'Black Heart');
+addSymbols('hearts', '❥', 'Rotated Heavy Heart');
+addSymbols('hearts', '❣', 'Heart Exclamation');
+addSymbols('hearts', 'ღ', 'Georgian Heart');
+addSymbols('hearts', '✿', 'Black Flower');
+addSymbols('hearts', '❀', 'White Flower');
+addSymbols('hearts', '⋆', 'Star Operator');
+addSymbols('hearts', '✲', 'Open Center Asterisk');
+addSymbols('hearts', '❊', 'Eight Teardrop');
+addSymbols('hearts', 'ꫂ❁', 'Tai Tham with Flower');
+addSymbols('hearts', '𖹭', 'Ethiopic Syllable');
+addSymbols('hearts', '☂', 'Umbrella');
+addSymbols('hearts', '❣', 'Heart Exclamation');
+addSymbols('hearts', '❥', 'Rotated Heart');
+addSymbols('hearts', '❦', 'Floral Heart');
+addSymbols('hearts', '💝᪲᪲᪲', 'Heart with Ribbon Triple');
+addSymbols('hearts', '💓᪲᪲', 'Beating Heart Double');
+addSymbols('hearts', '💞᪳᪳᪳', 'Revolving Heart Triple');
+addSymbols('hearts', 'ᡣ𐭩', 'Mongolian Heart');
+addSymbols('hearts', 'ꨄ︎', 'Cham Heart');
+addSymbols('hearts', '๛', 'Khmer Heart');
+addSymbols('hearts', '𓏌', 'Egyptian Heart');
+addSymbols('hearts', '𖠌', 'Osmanya Heart');
+addSymbols('hearts', '𓆩ᵛ𓆪', 'Egyptian Vase with V');
+addSymbols('hearts', '☔︎︎', 'Umbrella with Rain');
+addSymbols('hearts', '亗', 'Samurai Heart');
+addSymbols('hearts', '♛', 'Black Chess Queen');
+addSymbols('hearts', '♚', 'Black Chess King');
     
     generateStyles();
     loadMiniSuggestions();
