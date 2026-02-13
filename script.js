@@ -972,20 +972,29 @@ function convert(name, map) {
     }).join("");
 }
 
-// ===== GENERATE STYLES WITH SINGLE AD =====
+// ===== GENERATE STYLES WITH DEFAULT EXAMPLES =====
 function generateStyles() {
     const name = document.getElementById('nameInput')?.value.trim();
     const result = document.getElementById('result');
     const resultsCount = document.getElementById('resultsCount');
+    const defaultExamples = document.getElementById('defaultExamples');
     
     if (!result) return;
-    result.innerHTML = "";
     
+    // Agar name empty hai to default examples dikhao
     if (!name) {
-        result.innerHTML = `<div class="empty-state"><i class="fas fa-magic"></i><p>Enter your name above to generate stylish nicknames</p><p class="sub-text">Perfect for Free Fire, PUBG, BGMI, Instagram, and YouTube</p></div>`;
-        if (resultsCount) resultsCount.textContent = "0 styles";
+        result.innerHTML = ''; // Clear karo
+        const examplesDiv = document.createElement('div');
+        examplesDiv.id = 'defaultExamples';
+        examplesDiv.className = 'examples-grid';
+        result.appendChild(examplesDiv);
+        loadDefaultExamples(currentFilter);
+        if (resultsCount) resultsCount.textContent = "✨ Examples";
         return;
     }
+    
+    // Agar name hai to styles generate karo
+    result.innerHTML = "";
     
     const styles = stylesByCategory[currentFilter] || [];
     
@@ -998,9 +1007,7 @@ function generateStyles() {
     // Randomize the order of styles
     const shuffled = [...styles].sort(() => Math.random() - 0.5);
     
-    // Pehle 10-16 styles generate karo
-    for (let i = 0; i < shuffled.length; i++) {
-        const style = shuffled[i];
+    shuffled.forEach((style, index) => {
         const styled = style.prefix + convert(name, style.map) + style.suffix;
         const escapedStyled = styled.replace(/'/g, "\\'").replace(/"/g, '&quot;');
         
@@ -1009,14 +1016,13 @@ function generateStyles() {
         div.innerHTML = `<div class="style-text">${styled}</div><button class="copy-btn" onclick="copyText('${escapedStyled}', this)"><i class="fas fa-copy"></i> Copy</button>`;
         result.appendChild(div);
         
-        // Sirf EK baar ad dikhao - 12th style ke baad (10-16 ke bich)
-        if (i === 11 && shuffled.length > 12) {  // 12th style ke baad (index 11)
+        // AdSense placeholder - 12th style ke baad
+        if (i === 11 && shuffled.length > 12) {
             const adDiv = document.createElement('div');
             adDiv.className = 'ad-single';
-            // Bilkul empty - kuch nahi
             result.appendChild(adDiv);
         }
-    }
+    });
     
     if (resultsCount) resultsCount.textContent = `${styles.length} styles`;
 }
@@ -1221,6 +1227,74 @@ function toggleTheme() {
         if (themeStatus) themeStatus.textContent = 'Light';
         localStorage.setItem('theme', 'light');
     }
+}
+
+// ===== LOAD DEFAULT EXAMPLES =====
+function loadDefaultExamples(category) {
+    const examplesDiv = document.getElementById('defaultExamples');
+    if (!examplesDiv) return;
+    
+    examplesDiv.innerHTML = '';
+    
+    // Welcome message
+    const welcomeDiv = document.createElement('div');
+    welcomeDiv.className = 'welcome-message';
+    welcomeDiv.innerHTML = '<i class="fas fa-magic"></i><p>Enter your name above to create your own stylish nickname!</p><p style="font-size: 0.9rem; margin-top: 0.5rem;">Check out these examples in ' + category.charAt(0).toUpperCase() + category.slice(1) + ' style ⬇️</p>';
+    examplesDiv.appendChild(welcomeDiv);
+    
+    // Category ke according examples lo
+    const examples = categoryExamples[category] || categoryExamples.love;
+    
+    // Random 12 examples dikhao
+    const shuffled = [...examples].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, 12);
+    
+    selected.forEach(example => {
+        const card = document.createElement('div');
+        card.className = 'example-card';
+        
+        // Category badge
+        const badge = document.createElement('span');
+        badge.className = 'category-badge';
+        badge.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+        card.appendChild(badge);
+        
+        // Example text
+        const textDiv = document.createElement('div');
+        textDiv.className = 'example-text';
+        textDiv.textContent = example.text;
+        card.appendChild(textDiv);
+        
+        // Footer with copy button
+        const footer = document.createElement('div');
+        footer.className = 'example-footer';
+        footer.innerHTML = `
+            <span class="example-label">Example Style</span>
+            <button class="copy-btn" style="padding: 0.4rem 1rem; font-size: 0.8rem;" onclick="copyText('${example.text.replace(/'/g, "\\'").replace(/"/g, '&quot;')}')">
+                <i class="fas fa-copy"></i> Copy
+            </button>
+        `;
+        card.appendChild(footer);
+        
+        // Symbols row
+        if (example.symbols && example.symbols.length > 0) {
+            const symbolsRow = document.createElement('div');
+            symbolsRow.className = 'example-symbols-row';
+            
+            // Random 4 symbols dikhao
+            const shuffledSymbols = [...example.symbols].sort(() => Math.random() - 0.5);
+            shuffledSymbols.slice(0, 4).forEach(symbol => {
+                const chip = document.createElement('span');
+                chip.className = 'symbol-chip';
+                chip.innerHTML = `${symbol} <i class="fas fa-copy" style="cursor: pointer;" onclick="copyText('${symbol.replace(/'/g, "\\'")}', event)"></i>`;
+                symbolsRow.appendChild(chip);
+            });
+            
+            card.appendChild(symbolsRow);
+        }
+        
+        examplesDiv.appendChild(card);
+    });
 }
 
 // ===== SIDEBAR FUNCTIONS =====
