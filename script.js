@@ -1508,33 +1508,30 @@ window.addSymbols = function(symbolCategory, symbol, name) {
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Load saved theme
+    // Theme load
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         isDarkTheme = true;
         document.body.classList.add('dark-theme');
         const themeToggle = document.getElementById('themeToggle');
-        const themeStatus = document.getElementById('themeStatus');
         if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        if (themeStatus) themeStatus.textContent = 'Dark';
     }
     
-    // Load saved note
+    // Load note
     loadNote();
     
-    // Setup event listeners
-    const menuToggle = document.getElementById('menuToggle');
-    const closeSidebarBtn = document.getElementById('closeSidebar');
-    const themeToggle = document.getElementById('themeToggle');
-    const noteText = document.getElementById('noteText');
-    const nameInput = document.getElementById('nameInput');
+    // Event listeners
+    document.getElementById('menuToggle')?.addEventListener('click', toggleSidebar);
+    document.getElementById('closeSidebar')?.addEventListener('click', closeSidebar);
+    document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+    document.getElementById('noteText')?.addEventListener('input', updateNoteCount);
     
-    if (menuToggle) menuToggle.addEventListener('click', toggleSidebar);
-    if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
-    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
-    if (noteText) noteText.addEventListener('input', updateNoteCount);
+    // Enter key
+    document.getElementById('nameInput')?.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') generateStyles();
+    });
     
-    // Close modals on outside click
+    // Close modals
     document.querySelectorAll('.modal').forEach(modal => {
         modal.addEventListener('click', function(e) {
             if (e.target === this) {
@@ -1544,13 +1541,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Enter key for name input
-    if (nameInput) {
-        nameInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') generateStyles();
-        });
-    }
     
     // Initialize
     initScrollTop();
