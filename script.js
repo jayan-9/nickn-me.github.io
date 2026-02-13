@@ -1129,19 +1129,40 @@ function generateStyles() {
     if (resultsCount) resultsCount.textContent = `${styles.length} styles`;
 }
 
+// ===== SELECT CATEGORY =====
 function selectCategory(type) {
     currentFilter = type;
     
-    document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+    // Update active category button
     document.querySelectorAll('.category-btn').forEach(btn => {
-        if (btn.textContent.toLowerCase().replace(/\s/g, '').includes(type)) {
+        btn.classList.remove('active');
+    });
+    
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        const text = btn.textContent.toLowerCase().replace(/\s/g, '');
+        if (text.includes(type)) {
             btn.classList.add('active');
         }
     });
     
+    // Generate styles if name exists, else show examples
     const name = document.getElementById('nameInput')?.value.trim();
-    if (name) generateStyles();
+    if (name) {
+        generateStyles();
+    } else {
+        // Clear result and show default examples
+        const result = document.getElementById('result');
+        if (result) {
+            result.innerHTML = '';
+            const examplesDiv = document.createElement('div');
+            examplesDiv.id = 'defaultExamples';
+            examplesDiv.className = 'examples-grid';
+            result.appendChild(examplesDiv);
+            loadDefaultExamples(type);
+        }
+    }
     
+    // Load mini suggestions for this category
     loadMiniSuggestions();
 }
 
@@ -1514,7 +1535,7 @@ window.addSymbols = function(symbolCategory, symbol, name) {
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Theme
+    // Load saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         isDarkTheme = true;
@@ -1525,10 +1546,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (themeStatus) themeStatus.textContent = 'Dark';
     }
     
-    // Load note
+    // Load saved note
     loadNote();
     
-    // Event listeners
+    // Setup event listeners
     const menuToggle = document.getElementById('menuToggle');
     const closeSidebarBtn = document.getElementById('closeSidebar');
     const themeToggle = document.getElementById('themeToggle');
@@ -1551,7 +1572,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Enter key
+    // Enter key for name input
     if (nameInput) {
         nameInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') generateStyles();
