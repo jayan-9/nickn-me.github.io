@@ -1078,93 +1078,65 @@ function convert(name, map) {
 function generateStyles() {
     const name = document.getElementById('nameInput')?.value.trim();
     const result = document.getElementById('result');
-    const resultsCount = document.getElementById('resultsCount');
     
     if (!result) return;
     result.innerHTML = "";
     
-    // AGAR NAME HAI TO STYLES DIKHAO
-    if (name) {
-        const styles = stylesByCategory[currentFilter] || [];
+    // Agar name nahi hai to DEFAULT EXAMPLES dikhao
+    if (!name) {
+        // Category ke according examples lo
+        const examples = categoryExamples[currentFilter] || categoryExamples.love;
         
-        if (styles.length === 0) {
-            result.innerHTML = `<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>No styles available for this category yet.</p><p class="sub-text">Check back soon for updates!</p></div>`;
-            if (resultsCount) resultsCount.textContent = "0 styles";
-            return;
-        }
+        // Random 12 examples dikhao
+        const shuffled = [...examples].sort(() => Math.random() - 0.5);
+        const selected = shuffled.slice(0, 12);
         
-        // Randomize styles
-        const shuffled = [...styles].sort(() => Math.random() - 0.5);
-        
-        shuffled.forEach((style, index) => {
-            const styled = style.prefix + convert(name, style.map) + style.suffix;
-            const escapedStyled = styled.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-            
+        selected.forEach(example => {
             const div = document.createElement('div');
             div.className = 'style-card';
-            div.innerHTML = `<div class="style-text">${styled}</div><button class="copy-btn" onclick="copyText('${escapedStyled}', this)"><i class="fas fa-copy"></i> Copy</button>`;
+            div.innerHTML = `
+                <div class="style-text">${example.text}</div>
+                <button class="copy-btn" onclick="copyText('${example.text.replace(/'/g, "\\'").replace(/"/g, '&quot;')}', this)">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+            `;
             result.appendChild(div);
-            
-            // Ad placeholder - 12th style ke baad
-            if (i === 11 && shuffled.length > 12) {
-                const adDiv = document.createElement('div');
-                adDiv.className = 'ad-single';
-                result.appendChild(adDiv);
-            }
         });
-        
-        if (resultsCount) resultsCount.textContent = `${styles.length} styles`;
-        
-    // AGAR NAME NAHI HAI TO EXAMPLES DIKHAO
-    } else {
-        result.innerHTML = `<div class="empty-state"><i class="fas fa-magic"></i><p>Enter your name above to generate stylish nicknames</p><p class="sub-text">Check out these examples 👇</p></div>`;
-        
-        // Examples grid
-        const examplesDiv = document.createElement('div');
-        examplesDiv.id = 'defaultExamples';
-        examplesDiv.className = 'examples-grid';
-        result.appendChild(examplesDiv);
-        loadDefaultExamples(currentFilter);
-        
-        if (resultsCount) resultsCount.textContent = "✨ Examples";
-    }
-}
-
-// ===== SELECT CATEGORY =====
-function selectCategory(type) {
-    currentFilter = type;
-    
-    // Update active category button
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        const text = btn.textContent.toLowerCase().replace(/\s/g, '');
-        if (text.includes(type)) {
-            btn.classList.add('active');
-        }
-    });
-    
-    // Generate styles if name exists, else show examples
-    const name = document.getElementById('nameInput')?.value.trim();
-    if (name) {
-        generateStyles();
-    } else {
-        // Clear result and show default examples
-        const result = document.getElementById('result');
-        if (result) {
-            result.innerHTML = '';
-            const examplesDiv = document.createElement('div');
-            examplesDiv.id = 'defaultExamples';
-            examplesDiv.className = 'examples-grid';
-            result.appendChild(examplesDiv);
-            loadDefaultExamples(type);
-        }
+        return;
     }
     
-    // Load mini suggestions for this category
-    loadMiniSuggestions();
+    // Agar name hai to STYLES GENERATE karo
+    const styles = stylesByCategory[currentFilter] || [];
+    
+    if (styles.length === 0) {
+        result.innerHTML = `<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>No styles available for this category yet.</p></div>`;
+        return;
+    }
+    
+    // Randomize the order of styles
+    const shuffled = [...styles].sort(() => Math.random() - 0.5);
+    
+    shuffled.forEach((style, index) => {
+        const styled = style.prefix + convert(name, style.map) + style.suffix;
+        const escapedStyled = styled.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        
+        const div = document.createElement('div');
+        div.className = 'style-card';
+        div.innerHTML = `
+            <div class="style-text">${styled}</div>
+            <button class="copy-btn" onclick="copyText('${escapedStyled}', this)">
+                <i class="fas fa-copy"></i> Copy
+            </button>
+        `;
+        result.appendChild(div);
+        
+        // AdSense placeholder - 12th style ke baad
+        if (i === 11 && shuffled.length > 12) {
+            const adDiv = document.createElement('div');
+            adDiv.className = 'ad-single';
+            result.appendChild(adDiv);
+        }
+    });
 }
 
 // ===== SUGGESTIONS TRAY SYSTEM =====
