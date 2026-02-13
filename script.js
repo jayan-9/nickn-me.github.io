@@ -478,6 +478,7 @@ function convert(name, map) {
     }).join("");
 }
 
+// ===== GENERATE STYLES WITH SINGLE AD =====
 function generateStyles() {
     const name = document.getElementById('nameInput')?.value.trim();
     const result = document.getElementById('result');
@@ -500,17 +501,71 @@ function generateStyles() {
         return;
     }
     
+    // Randomize the order of styles
     const shuffled = [...styles].sort(() => Math.random() - 0.5);
     
-    shuffled.forEach(style => {
+    // Decide random position for ad (between 10 to 16)
+    let adPosition = Math.floor(Math.random() * 7) + 10; // 10,11,12,13,14,15,16
+    let adAdded = false;
+    
+    shuffled.forEach((style, index) => {
         const styled = style.prefix + convert(name, style.map) + style.suffix;
         const escapedStyled = styled.replace(/'/g, "\\'").replace(/"/g, '&quot;');
         
+        // Style card
         const div = document.createElement('div');
         div.className = 'style-card';
         div.innerHTML = `<div class="style-text">${styled}</div><button class="copy-btn" onclick="copyText('${escapedStyled}', this)"><i class="fas fa-copy"></i> Copy</button>`;
         result.appendChild(div);
+        
+        // Sirf EK baar ad add karo, jab position match kare
+        if (index + 1 === adPosition && !adAdded && shuffled.length > adPosition) {
+            const adDiv = document.createElement('div');
+            adDiv.className = 'style-card ad-placeholder-card';
+            adDiv.innerHTML = `
+                <div class="ad-inside">
+                    <span class="ad-label">Advertisement</span>
+                    <div class="ad-box-small">
+                        <!-- Google AdSense Code Here -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                             data-ad-slot="XXXXXXXXXX"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        <\/script>
+                    </div>
+                </div>
+            `;
+            result.appendChild(adDiv);
+            adAdded = true;
+        }
     });
+    
+    // Agar ad add nahi hua (kyunki styles kam the), to last me add karo
+    if (!adAdded && shuffled.length >= 5) {
+        const adDiv = document.createElement('div');
+        adDiv.className = 'style-card ad-placeholder-card';
+        adDiv.innerHTML = `
+            <div class="ad-inside">
+                <span class="ad-label">Advertisement</span>
+                <div class="ad-box-small">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    <\/script>
+                </div>
+            </div>
+        `;
+        result.appendChild(adDiv);
+    }
     
     if (resultsCount) resultsCount.textContent = `${styles.length} styles`;
 }
