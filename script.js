@@ -11733,7 +11733,75 @@ addStyle('font', 'font_strikethrough_smallcaps', '', '', {
     A: "ᴀ̶", B: "ʙ̶", C: "ᴄ̶", D: "ᴅ̶", E: "ᴇ̶", F: "ꜰ̶", G: "ɢ̶", H: "ʜ̶", I: "ɪ̶", J: "ᴊ̶",
     K: "ᴋ̶", L: "ʟ̶", M: "ᴍ̶", N: "ɴ̶", O: "ᴏ̶", P: "ᴘ̶", Q: "Q̶", R: "ʀ̶", S: "ꜱ̶", T: "ᴛ̶",
     U: "ᴜ̶", V: "ᴠ̶", W: "ᴡ̶", X: "x̶", Y: "ʏ̶", Z: "ᴢ̶"
-});                  
+});    
+
+// ============ LOVE SUGGESTIONS ============
+addSuggestion('love', 'ƒοřєνєř 🫰🏻💗');
+addSuggestion('love', '𝕩♡𝕩 ιѕнq ωαℓα ℓσνє 𝕩♡𝕩');
+addSuggestion('love', '♡🌹Rose ⨳࿐࿆');
+addSuggestion('love', '🌸⃟Blade◢ ꫟࿐');
+addSuggestion('love', '⎳𝙤νě γ๑υ ‹ 𝟷𝟶𝟶');
+addSuggestion('love', '🎀⃟D̶a̶r̶k̶ L𖹭ve 乡');
+addSuggestion('love', 'Singal life 𖨆');
+addSuggestion('love', '⎳𝙤νěr ʙᴏʏ⍣᭄');
+addSuggestion('love', '亗 Ꮮᴏᴠᴇ ❥Kiss 𓏧♥️');
+addSuggestion('love', '« 💓᪲᪲ » ᴊ « 💓᪲᪲ »');
+addSuggestion('love', '🌸⃟🍧𝑆𝑤𝑒𝑒𝑡 𝐿𝑜𝑣𝑒𝑟₊˚· 🍫✦');
+addSuggestion('love', '♔𝓐𝓷𝓰𝓮𝓵 𝓸𝓯 𝓛𝓸𝓿𝓮 ｡• . • ｡⑅');
+addSuggestion('love', 'ᡣ𐭩Sωєєτᡣ𐭩 ꫂ✿ꪶ');
+addSuggestion('love', '❦ Dαяℓιηg ❦࿐');
+addSuggestion('love', 'ⁱᵃᵐ᭄ 𝐑𝐨𝐦𝐚𝐧𝐭𝐢𝐜 ▼ツ');
+addSuggestion('love', '✿ ℒℴ𝓋ℯ 𝐵𝓁ℴ𝓈𝓈ℴ𝓂｡⋆｡˚ ✿');
+addSuggestion('love', '𝕭𝖆𝖇𝖞 𝕲𝖎𝖗𝖑 🕊');
+addSuggestion('love', '❣𓂃𝓜𝔂 𝓠𝓾𝓮𝓮𝓷 ┊❣┊࿐');
+addSuggestion('love', '➵ 𝙋𝙧𝙞𝙣𝙘𝙚 𝙤ᥬ ᧒𝙛 𝙃𝙚𝙖𝙧𝙩𝙨 ♚');
+addSuggestion('love', '❥━»Sσυℓ«━❀❥');
+addSuggestion('love', '❥ ៚𝐹𝑜𝓇𝑒𝓋𝑒𝓇 𝑀𝒾𝓃𝑒 ☻ˎˊ˗');
+addSuggestion('love', '✳╰•⋆ᖴEEᒪIᑎG ˃ᴗ˂');
+addSuggestion('love', '☺️⋆˙Hєя Sмιℓє ⋆˙⟡');
+addSuggestion('love', '❥»Dɪʟ Kɪ Dʜᴀᴅᴋᴀɴ ꕥ༒');
+addSuggestion('love', '𝓒𝓾𝓽𝓮 🦋⃟𝓑𝓾𝓽𝓽𝓮𝓻𝓯𝓵𝔂 ⸙');
+addSuggestion('love', '🎀⃟ʝααи  ᪲᪲᪲');
+addSuggestion('love', '𝐇𝐞𝐚𝐫𝐭 💞 𝐐𝐮𝐞𝐞𝐧 亗');
+addSuggestion('love', '👁️⃝𝓢𝔀𝓮𝓮𝓽 𝓟𝓻𝓲𝓷𝓬𝓮𝓼𝓼   ꤪꤨꤪ࿐');
+addSuggestion('love', 'ℒσνє');
+
+// ============ GAMER SUGGESTIONS ============
+addSuggestion('gamer', 'Μẋ—͟͞͞ꜱᴘᴇᴇᴅ ⸙');
+addSuggestion('gamer', '𝘙αi Ѕταř 모');
+addSuggestion('gamer', 'ຟɪƶαяᴅ ᜰ');
+addSuggestion('gamer', '⸙ A̷̷ʟᴘʜᴀ');
+addSuggestion('gamer', '—͟͞͞⚽︎𝐶𝑅7 ╰⁔╯');
+addSuggestion('gamer', 'NΞΧUS R𝟷');
+addSuggestion('gamer', 'BL么ZE ƒƒ');
+addSuggestion('gamer', 'ѕᴛʀɪνᥱ-ꪎ');
+addSuggestion('gamer', 'KϓR࿊𝚾');
+addSuggestion('gamer', 'VӨLT⚡︎RC');
+addSuggestion('gamer', 'ZE̷̷NIƬH');
+addSuggestion('gamer', '⚽︎ Ｆ L̶ ＥＸ');
+addSuggestion('gamer', 'ⓥ H̸ᴀʏᴠᴀɴ');
+addSuggestion('gamer', 'ᶦᶰᵈ᭄ ĺᥱɠᥱռɗ ⸙');
+addSuggestion('gamer', 'Z͢ᴇɴɪᴛꜱʜᴜ⋆.⚔');
+addSuggestion('gamer', '𖣿ֆɪʟᴇɴᴛ•ɢᴍʀ ꫟');
+addSuggestion('gamer', '⸙ X-「•❀R̷̷a̷j̷a̷ ❀•」 모');
+addSuggestion('gamer', 'ᎧᎮ ×͜× Ꮮᴇԍᴇɴᴅ☯࿐');
+addSuggestion('gamer', 'ꜰꜰ★ɢᴀᴍᴇʀ࿐');
+
+// ============ FANCY SUGGESTIONS ============
+addSuggestion('fancy', 'D̶a̶r̶k̶ ĺᥱɠᥱռɗ ⚔');
+addSuggestion('fancy', 'Ꭾ♔');
+addSuggestion('fancy', '➤⃝देसी londa 乂亗');
+addSuggestion('fancy', '➫ भाभी जी✩°｡£');
+addSuggestion('fancy', '𐙚₊˚𝕄𝕒𝕕 ║ℝ𝕒𝕧𝕖𝕟║꫟');
+addSuggestion('fancy', '◥么King Of Hell么◤');
+addSuggestion('fancy', 'ͥ ͣ ͫκɪɴɢ ¹⁸⁺');
+addSuggestion('fancy', '☛ 𝙈𝙮 𝙃𝙚𝙖𝙧𝙩 ❀');
+addSuggestion('fancy', '💢 Ego 💢');
+addSuggestion('fancy', '➬ ✿⃟मां का मगरमच्छ ⨳࿐');
+
+// ============ FONT SUGGESTIONS ============
+addSuggestion('font', 'L👀king');
+addSuggestion('font', 'ＳＰ⚽︎ＲＴ');
 
     generateStyles();
     loadMiniSuggestions();
