@@ -1296,140 +1296,44 @@ p {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1rem;
-    margin-bottom: 2rem;
 }
 
-.example-card {
-    background: linear-gradient(145deg, var(--light), var(--gray-light));
+.style-card {
+    background: var(--light);
     border: 1px solid var(--gray-light);
     border-radius: var(--radius);
     padding: 1.5rem;
     transition: var(--transition);
-    position: relative;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.example-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary);
-}
-
-.example-text {
+.style-text {
     font-size: 1.25rem;
     font-weight: 500;
     word-break: break-word;
-    margin-bottom: 1rem;
     min-height: 60px;
     display: flex;
     align-items: center;
 }
 
-.example-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.5rem;
-    padding-top: 0.5rem;
-    border-top: 1px dashed var(--gray-light);
-}
-
-.example-label {
-    font-size: 0.75rem;
-    color: var(--gray);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.example-badge {
+.copy-btn {
+    padding: 0.75rem;
     background: var(--primary);
     color: white;
-    padding: 0.2rem 0.8rem;
-    border-radius: 50px;
-    font-size: 0.7rem;
-    font-weight: 600;
-}
-
-.example-symbols-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid var(--gray-light);
-}
-
-.symbol-chip {
-    background: var(--light);
-    border: 1px solid var(--gray-light);
-    border-radius: 50px;
-    padding: 0.3rem 0.8rem;
+    border: none;
+    border-radius: var(--radius);
     font-size: 0.9rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
+    font-weight: 500;
+    cursor: pointer;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
-.symbol-chip:hover {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-}
-
-.symbol-chip i {
-    font-size: 0.8rem;
-    opacity: 0.7;
-}
-
-.category-badge {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: rgba(79, 70, 229, 0.1);
-    color: var(--primary);
-    padding: 0.2rem 0.8rem;
-    border-radius: 50px;
-    font-size: 0.7rem;
-    font-weight: 600;
-}
-
-.welcome-message {
-    text-align: center;
-    padding: 2rem;
-    color: var(--gray);
-    font-size: 1.1rem;
-}
-
-.welcome-message i {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
-
-/* Dark theme */
-.dark-theme .example-card {
-    background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
-    border-color: #404040;
-}
-
-.dark-theme .symbol-chip {
-    background: #2d2d2d;
-    border-color: #404040;
-}
-
-.dark-theme .symbol-chip:hover {
-    background: var(--primary);
-    color: white;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .examples-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .example-text {
-        font-size: 1.1rem;
-    }
+.copy-btn:hover {
+    background: var(--primary-dark);
 }
