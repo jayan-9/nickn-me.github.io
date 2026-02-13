@@ -1269,52 +1269,24 @@ p {
     color: white;
 }
 
-/* ===== ADS INSIDE STYLES ===== */
-.ad-placeholder-card {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border: 2px dashed #4f46e5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 180px;  /* AdSense ke hisab se height */
-    grid-column: 1 / -1;  /* Full width */
-}
-
-.ad-inside {
+/* ===== SINGLE ADSENSE PLACEHOLDER ===== */
+.ad-single {
     width: 100%;
-    text-align: center;
-    padding: 0.5rem;
+    height: 280px;
+    margin: 30px 0;
+    background: transparent;
+    grid-column: 1 / -1;
 }
 
-.ad-label {
-    font-size: 0.7rem;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: block;
-    margin-bottom: 0.5rem;
+/* Dark theme - bilkul same, transparent */
+.dark-theme .ad-single {
+    background: transparent;
 }
 
-.ad-box-small {
-    background: white;
-    border-radius: 8px;
-    padding: 1rem;
-    border: 1px solid #e5e7eb;
-    min-height: 120px;  /* AdSense ke liye perfect */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-/* Dark theme support */
-.dark-theme .ad-placeholder-card {
-    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-    border-color: #6366f1;
-}
-
-.dark-theme .ad-box-small {
-    background: #3a3a3a;
-    border-color: #555;
-    color: #e5e7eb;
+/* Responsive - mobile pe bhi same size */
+@media (max-width: 768px) {
+    .ad-single {
+        height: 250px;
+        margin: 20px 0;
+    }
 }
