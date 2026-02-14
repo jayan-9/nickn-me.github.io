@@ -1083,27 +1083,39 @@ function generateStyles() {
     result.innerHTML = "";
     
     // Agar name nahi hai to DEFAULT EXAMPLES dikhao
-    if (!name) {
-        // Category ke according examples lo
-        const examples = categoryExamples[currentFilter] || categoryExamples.love;
+if (!name) {
+    const examples = categoryExamples[currentFilter] || categoryExamples.love;
+    const shuffled = [...examples].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, 12);
+    
+    selected.forEach(example => {
+        const div = document.createElement('div');
+        div.className = 'style-card';
         
-        // Random 12 examples dikhao
-        const shuffled = [...examples].sort(() => Math.random() - 0.5);
-        const selected = shuffled.slice(0, 12);
+        // Example text
+        let html = `<div class="style-text">${example.text}</div>`;
         
-        selected.forEach(example => {
-            const div = document.createElement('div');
-            div.className = 'style-card';
-            div.innerHTML = `
-                <div class="style-text">${example.text}</div>
-                <button class="copy-btn" onclick="copyText('${example.text.replace(/'/g, "\\'").replace(/"/g, '&quot;')}', this)">
-                    <i class="fas fa-copy"></i> Copy
-                </button>
-            `;
-            result.appendChild(div);
-        });
-        return;
-    }
+        // Symbols dikhao agar hain to
+        if (example.symbols && example.symbols.length > 0) {
+            html += `<div class="example-symbols" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0; padding: 0.5rem 0; border-top: 1px dashed var(--gray-light);">`;
+            
+            // Random 6 symbols dikhao
+            const shuffledSymbols = [...example.symbols].sort(() => Math.random() - 0.5);
+            shuffledSymbols.slice(0, 6).forEach(symbol => {
+                html += `<span style="background: var(--gray-light); padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.9rem; cursor: pointer;" onclick="copyText('${symbol.replace(/'/g, "\\'")}')">${symbol} <i class="fas fa-copy" style="font-size: 0.7rem;"></i></span>`;
+            });
+            
+            html += `</div>`;
+        }
+        
+        // Copy button
+        html += `<button class="copy-btn" onclick="copyText('${example.text.replace(/'/g, "\\'").replace(/"/g, '&quot;')}', this)"><i class="fas fa-copy"></i> Copy</button>`;
+        
+        div.innerHTML = html;
+        result.appendChild(div);
+    });
+    return;
+}
     
     // Agar name hai to STYLES GENERATE karo
     const styles = stylesByCategory[currentFilter] || [];
@@ -1162,10 +1174,16 @@ function loadMiniSuggestions() {
     const categoryName = document.getElementById('currentCategoryName');
     const suggestionCount = document.getElementById('suggestionCount');
     
-    if (!miniGrid || !categoryName || !suggestionCount) return;
+    if (!miniGrid || !categoryName || !suggestionCount) {
+        console.log("Suggestions elements missing!");
+        return;
+    }
     
     categoryName.textContent = currentFilter.charAt(0).toUpperCase() + currentFilter.slice(1);
+    
+    // CHECK: suggestionsData me data hai?
     const categorySuggestions = suggestionsData[currentFilter] || [];
+    console.log("Suggestions for", currentFilter, ":", categorySuggestions.length);
     
     if (categorySuggestions.length === 0) {
         miniGrid.innerHTML = '<p style="color: var(--gray); font-size: 0.9rem;">No suggestions yet</p>';
