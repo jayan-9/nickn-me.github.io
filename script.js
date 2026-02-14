@@ -1081,6 +1081,8 @@ function generateStyles() {
     
     if (!result) return;
     result.innerHTML = "";
+
+    console.log("Styles in", currentFilter, ":", stylesByCategory[currentFilter]);
     
     // Agar name nahi hai to DEFAULT EXAMPLES dikhao
 if (!name) {
