@@ -1139,6 +1139,23 @@ function generateStyles() {
     });
 }
 
+// ===== SELECT CATEGORY =====
+function selectCategory(type) {
+    currentFilter = type;
+    
+    // Update active category button
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(type)) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Generate styles
+    generateStyles();
+    loadMiniSuggestions();
+}
+
 // ===== SUGGESTIONS TRAY SYSTEM =====
 function loadMiniSuggestions() {
     const miniGrid = document.getElementById('miniSuggestions');
